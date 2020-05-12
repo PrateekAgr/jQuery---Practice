@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <style>
+      .container {
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+      }
+      #box{
+        width: 500px;
+        height: 200px;
+        background-color: green;
+        color: honeydew;
+        margin: 20px;
+        text-align: center;
+        padding: 50px;
+        font-size: 3rem;
+      }
+
+      #box2{
+        width: 100px;
+        height: 100px;
+        background: skyblue;
+        margin-left: 100px;
+        margin-top: 20px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <button class="fadeOut">Fade Out</button>
+      <button class="fadeIn">Fade In</button>
+      <button class="fadeToggle">Fade Toggle</button>
+      <hr>
+      <button class="slideUp">Slide Up</button>
+      <button class="slideDown">Slide Down</button>
+      <button class="slideToggle">Slide Toggle</button>
+      <button class="slideStop">Slide Stop</button>
+      <div id="box">Hey!!!!!!!!!</div>
+      <hr>
+      <button class="moveLeft">Move Left</button>
+      <button class="moveRight">Move Right</button>
+      <button class="moveAround">Move Around</button>
+      
+      <div id="box2"></div>
+
+
+      <script>
+        $(document).ready(function(){
+          $('.fadeOut').click(function(){
+            $('#box').fadeOut(3000,function(){
+              $('.fadeOut').text('Its Gone');
+            });
+          });
+
+          $('.fadeIn').click(function(){
+            $('#box').fadeIn(3000,function(){
+              $('.fadeOut').text('Fade Out');
+            });
+          });
+
+          $('.fadeToggle').click(function(){
+            $('#box').fadeToggle(1000);
+          });
+
+
+          $('.slideUp').click(function(){
+            $('#box').slideUp(3000);
+          });
+
+          $('.slideDown').click(function(){
+            $('#box').slideDown(3000);
+          });
+
+          $('.slideToggle').click(function(){
+            $('#box').slideToggle(1000);
+          });
+
+          $('.slideStop').click(function(){
+            $('#box').stop();
+          });
+          
+          $('.moveLeft').click(function(){
+            $('#box2').animate({
+             left: 0,
+             width: '300px',
+             height: '300px',
+             opacity: 0.5
+            });
+          });
+          $('.moveRight').click(function(){
+            $('#box2').animate({
+             left: 400,
+             width: '100px',
+             height: '100px',
+             opacity: 1
+            });
+          });
+
+          $('.moveAround').click(function(){
+            var box =$('#box2')
+            box.animate({
+              left: 350
+            });
+            box.animate({
+              top: 150
+            });
+            box.animate({
+              left: 0
+            });
+            box.animate({
+              top: 0
+            });
+          });
+
+        });
+      </script>
+  </body>
+</html>
